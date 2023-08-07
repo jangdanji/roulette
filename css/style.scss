@@ -3,10 +3,19 @@
 $color1: #1A5D1A;
 $color2: #F1C93B;
 
+@mixin smallScreen{
+  @media (max-width: 1250px){ 
+    @content;
+  }
+}
+
+
 .main{
   background-color: $color1;
 
   .container{
+
+    @include smallScreen {width: 100%;}
 
     width: 1250px; height: 100vh;
     margin: 0 auto;
@@ -17,12 +26,23 @@ $color2: #F1C93B;
       flex-direction: column;
       height: 100%;
 
+      
+
       .result{
-        width: 100%;
-        padding: 10px 20px; border-radius: 5px;
-        font-size: 30px; font-weight: bold;
+        
+        width: 100%; height: 100px;
+        @include smallScreen {width: calc(100% - 20px); margin: 0 10px;}
+        border-radius: 5px;
+        font-size: 24px; font-weight: bold;
         text-align: center;
         background-color: #fff;
+        display: flex;
+        align-items: center; justify-content: center;
+
+        // .result-monitor{padding: 10px 20px;}
+
+
+        
       }
 
       .btn-zone{
@@ -48,7 +68,7 @@ $color2: #F1C93B;
     background-color: rgba($color: #000000, $alpha: 0.5);
     display: flex; justify-content: center; align-items: center;
 
-    z-index: -1;
+    z-index: -1; opacity: 0;
 
     .custom{
 

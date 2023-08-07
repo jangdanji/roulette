@@ -1,7 +1,10 @@
 const fullModal = document.querySelector('.full-modal')
 
 const modifyBtn = document.querySelector('.btn-zone .custom')
-modifyBtn.addEventListener('click', () => fullModal.style.zIndex = 1)
+modifyBtn.addEventListener('click', () => {
+  fullModal.style.zIndex = 1
+  fullModal.style.opacity = 1
+})
 
 const save = fullModal.querySelector('button.save')
 save.addEventListener('click', () => {
@@ -10,4 +13,5 @@ save.addEventListener('click', () => {
       cleanedData = cleanedData.trimEnd()
   missionData.value = cleanedData
   fullModal.style.zIndex = -1
+  fullModal.style.opacity = 0
 })
