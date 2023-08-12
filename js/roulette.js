@@ -17,8 +17,8 @@ yourMission.value = `디바 4인궁 이상 성공하기
 30킬 이상하고 패배하기
 낙사 4회 이상 당하기 (자살 X)`
 
-const spinBtn = document.querySelector('.btn-zone button.spin')
-const resultWindow = document.querySelector('.roulette .result p')
+const spinBtn = document.querySelector('.btn-zone button.start')
+const resultWindow = document.querySelector('.content .result p')
 
 function count(shuffledList, endpoint, index=0, delay=20) {
 
@@ -33,7 +33,7 @@ function count(shuffledList, endpoint, index=0, delay=20) {
       result = shuffledList[index % shuffledList.length]
       resultWindow.textContent = result
 
-      count(shuffledList, endpoint, index + 1, index < endpoint - 30 ? 20 : delay + 16) /* index가 70 이상 넘어가면 delay가 10씩 누적으로 증가 */
+      count(shuffledList, endpoint, index + 1, index < endpoint - 30 ? 20 : delay + 16) /* index가 70 이상 넘어가면 delay가 16씩 누적으로 증가 */
     }, delay)
   } 
   else if (index > endpoint) {
@@ -43,7 +43,7 @@ function count(shuffledList, endpoint, index=0, delay=20) {
 
       resultWindow.textContent = result
       resultWindow.style.cssText = `color: #1A5D1A; font-size: 30px;`
-      const btnZone = document.querySelector('.roulette .btn-zone')
+      const btnZone = document.querySelector('.content .btn-zone')
       btnZone.style.display = 'flex'
     }, 1500)
   }
@@ -52,7 +52,7 @@ function count(shuffledList, endpoint, index=0, delay=20) {
 
 spinBtn.addEventListener('click', function(){
 
-  const btnZone = document.querySelector('.roulette .btn-zone')
+  const btnZone = document.querySelector('.content .btn-zone')
   btnZone.style.display = 'none'
 
   let missions = document.querySelector('.full-modal .custom textarea').value

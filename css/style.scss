@@ -9,9 +9,11 @@ $color2: #F1C93B;
   }
 }
 
+a{text-decoration: none; color: #000000;}
 
 .main{
   background-color: $color1;
+  position: relative;
 
   .container{
 
@@ -21,7 +23,7 @@ $color2: #F1C93B;
     margin: 0 auto;
     
 
-    .roulette{
+    .content{
       display: flex; justify-content: center; align-items: center;
       flex-direction: column;
       height: 100%;
@@ -51,9 +53,19 @@ $color2: #F1C93B;
           display: block;
           padding: 10px 20px; border-radius: 5px;
           background-color: $color2; border: none;
-          cursor: pointer; transition: 0.1s;
+          cursor: pointer; transition: background-color 0.1s;
           &:hover{background-color: black; color: white;}
           margin: 30px 10px 0 10px;
+        }
+      }
+
+      .setting{
+        padding: 20px; color: white;
+
+        select{
+          display: block;
+          padding: 10px 20px; border-radius: 5px;
+          font-size: 18px;
         }
       }
 
@@ -103,5 +115,26 @@ $color2: #F1C93B;
     }
     
 
+  }
+
+  .menu{
+    position: fixed; top: 0;
+
+    .menu-wrap{
+      display: flex;
+      padding: 20px;
+
+      a.menu-btn{
+        padding: 10px 20px; background-color: $color2;
+        border-radius: 5px; margin-right: 10px;
+        cursor: pointer; transition: 0.2s;
+        &:last-child{margin-right: 0;}
+        &:hover{background-color: white; color: black; font-weight: bold;}
+      }
+
+      .menu-btn.active{
+        font-weight: bold; background-color: #fff;
+      }
+    }
   }
 }
